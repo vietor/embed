@@ -1,0 +1,10 @@
+.*
+/.emacs.p
+
+*.o
+*.obj
+
+/GPATH
+/GRTAGS
+/GTAGS
+/TAGS
