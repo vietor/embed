@@ -1,8 +1,9 @@
 /*
- * Copyright 2014, Vietor Liu <vietor.liu at gmail.com>
+ * Part of embed, a tiny C tools library.
+ * Copyright 2014-2015, Vietor Liu <vietor.liu at gmail.com>
  * All rights reserved.
  * Use of this source code is governed by a BSD-style license that can be
- * found in the LICENSE file.
+ * found in the LICENSE or LICENSE.embed file.
  */
 
 #ifndef XGETOPT_H
