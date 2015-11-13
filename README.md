@@ -1,9 +1,10 @@
 embed
 ========
 
-A tiny C tool library. recommend to usage it in source code.
+A tiny C tool library for source code usage.
 
 # Files
+
 ## list.h
 
 A list implementation like linux kernel.
