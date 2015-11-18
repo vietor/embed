@@ -22,11 +22,12 @@ struct rbnode {
 
 struct rbtree {
 	struct rbnode *root;
-	int (*search) (const void*, const struct rbnode*);
-	int (*compare) (const struct rbnode*, const struct rbnode*);
+	EMBED_EXTERN int (*search) (const void*, const struct rbnode*);
+	EMBED_EXTERN int (*compare) (const struct rbnode*, const struct rbnode*);
 };
 
-extern struct rbnode rbnode_null;
+EMBED_EXTERN struct rbnode rbnode_null;
+
 #define RBNODE_NULL  (&rbnode_null)
 #define RBNODE_EMPTY ((void *)0)
 
@@ -63,11 +64,11 @@ static inline int rbnode_empty(struct rbnode *rbnode)
 	return rbnode->parent == RBNODE_EMPTY;
 }
 
-void rbtree_delete(struct rbtree *rbtree, struct rbnode *data);
+EMBED_EXTERN void rbtree_delete(struct rbtree *rbtree, struct rbnode *data);
 
 enum { RBINSERT_MULTI, RBINSERT_TRYONE, RBINSERT_REPLACE };
 
-struct rbnode *rbtree_insert3(struct rbtree *rbtree, struct rbnode *data, int flag);
+EMBED_EXTERN struct rbnode *rbtree_insert3(struct rbtree *rbtree, struct rbnode *data, int flag);
 
 static inline void rbtree_insert(struct rbtree *rbtree, struct rbnode *data)
 {
@@ -84,10 +85,10 @@ static inline struct rbnode *rbtree_insert_replace(struct rbtree *rbtree, struct
 	return rbtree_insert3(rbtree, data, RBINSERT_REPLACE);
 }
 
-struct rbnode *rbtree_first(struct rbtree *rbtree);
-struct rbnode *rbtree_last(struct rbtree *rbtree);
-struct rbnode *rbtree_next(struct rbnode *rbtree);
-struct rbnode *rbtree_previous(struct rbnode *rbtree);
-struct rbnode *rbtree_search (struct rbtree *rbtree, void *context);
+EMBED_EXTERN struct rbnode *rbtree_first(struct rbtree *rbtree);
+EMBED_EXTERN struct rbnode *rbtree_last(struct rbtree *rbtree);
+EMBED_EXTERN struct rbnode *rbtree_next(struct rbnode *rbtree);
+EMBED_EXTERN struct rbnode *rbtree_previous(struct rbnode *rbtree);
+EMBED_EXTERN struct rbnode *rbtree_search (struct rbtree *rbtree, void *context);
 
 #endif

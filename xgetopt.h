@@ -25,6 +25,6 @@ struct xoption {
 	int val;
 };
 
-int xgetopt(int argc, const char* argv[], const struct xoption* options, int* optind, const char **optarg);
+EMBED_EXTERN int xgetopt(int argc, const char* argv[], const struct xoption* options, int* optind, const char **optarg);
 
 #endif

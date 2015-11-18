@@ -9,8 +9,10 @@
 #ifndef EMBED_H
 #define EMBED_H
 
-#ifdef __cplusplus
-#error "Just only support c language"
+#ifndef __cplusplus
+#define EMBED_EXTERN
+#else
+#define EMBED_EXTERN extern "C"
 #endif
 
 #ifndef NULL
