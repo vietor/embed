@@ -135,14 +135,13 @@ struct rbnode *rbtree_insert3(struct rbtree *rbtree, struct rbnode *data, int fl
 
 		if (r < 0)
 			node = node->left;
-		else if(r > 0 || flag == 0)
+		else if(r > 0 || flag == RBINSERT_MULTI)
 			node = node->right;
-		else if(flag == 1) {
+		else if(flag == RBINSERT_TRYONE) {
 			/* return exists node */
-			rbnode_init(data);
 			return node;
 		}
-		else {  /* flag == 2 */
+		else {  /* flag == RBINSERT_REPLACE */
 			/* return and replace exists node */
 			data->left = node->left;
 			data->right = node->right;

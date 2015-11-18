@@ -64,21 +64,24 @@ static inline int rbnode_empty(struct rbnode *rbnode)
 }
 
 void rbtree_delete(struct rbtree *rbtree, struct rbnode *data);
+
+enum { RBINSERT_MULTI, RBINSERT_TRYONE, RBINSERT_REPLACE };
+
 struct rbnode *rbtree_insert3(struct rbtree *rbtree, struct rbnode *data, int flag);
 
 static inline void rbtree_insert(struct rbtree *rbtree, struct rbnode *data)
 {
-	rbtree_insert3(rbtree, data, 0);
+	rbtree_insert3(rbtree, data, RBINSERT_MULTI);
 }
 
-static inline struct rbnode *rbtree_insert_broken(struct rbtree *rbtree, struct rbnode *data)
+static inline struct rbnode *rbtree_insert_tryone(struct rbtree *rbtree, struct rbnode *data)
 {
-	return rbtree_insert3(rbtree, data, 1);
+	return rbtree_insert3(rbtree, data, RBINSERT_TRYONE);
 }
 
 static inline struct rbnode *rbtree_insert_replace(struct rbtree *rbtree, struct rbnode *data)
 {
-	return rbtree_insert3(rbtree, data, 2);
+	return rbtree_insert3(rbtree, data, RBINSERT_REPLACE);
 }
 
 struct rbnode *rbtree_first(struct rbtree *rbtree);
